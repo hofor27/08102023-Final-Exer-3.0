@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #output {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="output"></div>
+
+    <script>
+      // Passo 1: Ler o índice de poluição do usuário
+      const indicePoluicao = parseFloat(
+        prompt("Digite o índice de poluição medido:")
+      );
+
+      // Passo 2: Definir os limites para diferentes notificações
+      const limiteGrupo1 = 0.3;
+      const limiteGrupo2 = 0.4;
+      const limiteTodosGrupos = 0.5;
+
+      // Passo 3: Verificar e emitir notificações com base no índice de poluição
+      const outputDiv = document.getElementById("output");
+      if (indicePoluicao >= limiteTodosGrupos) {
+        outputDiv.textContent =
+          "Todos os grupos de indústrias devem parar suas atividades.";
+      } else if (indicePoluicao >= limiteGrupo2) {
+        outputDiv.textContent =
+          "Indústrias dos 1º e 2º grupos devem parar suas atividades.";
+      } else if (indicePoluicao >= limiteGrupo1) {
+        outputDiv.textContent =
+          "Indústrias do 1º grupo devem parar suas atividades.";
+      } else {
+        outputDiv.textContent =
+          "O índice de poluição está dentro dos limites aceitáveis. Nenhuma ação é necessária.";
+      }
+    </script>
+  </body>
+</html>
